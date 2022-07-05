@@ -10,13 +10,17 @@ import { appReducers } from './store/store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { LayoutComponent } from './game/layout/layout.component'
 import { AppRoutingModule } from './app-routing.module'
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { ClickerComponent } from './game/clicker/clicker.component';
+import { PluralizePipe } from './pipes/pluralize.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    LoginComponent
+    LoginComponent,
+    ClickerComponent,
+    PluralizePipe
   ],
   imports: [
     AppRoutingModule,

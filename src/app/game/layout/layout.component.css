@@ -8,6 +8,9 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+main {
+  margin-top: 70px;
+}
 .footer {
   position: absolute;
   bottom: 0;

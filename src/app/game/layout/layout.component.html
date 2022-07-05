@@ -6,7 +6,16 @@
 </header>
 
 <!-- Begin page content -->
-<main role="main" class="container"></main>
+<main role="main" class="container">
+  <h1>{{ config[level].levelName }}{{ patatas }}</h1>
+  <app-clicker
+    *ngFor="let levelData of config[level].levelData"
+    [title]="levelData.title"
+    [factor]="levelData.factor"
+    [cost]="levelData.cost"
+    [interval]="levelData.interval"
+  ></app-clicker>
+</main>
 
 <footer class="footer">
   <div class="container">

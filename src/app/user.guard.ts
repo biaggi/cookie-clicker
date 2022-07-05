@@ -8,9 +8,9 @@ import { AppState } from './store/store'
   providedIn: 'root'
 })
 export class UserGuard implements CanActivate {
-  constructor (private store: Store<AppState>, private router: Router) {}
+  constructor(private store: Store<AppState>, private router: Router) {}
 
-  canActivate (): Observable<boolean> {
+  canActivate(): Observable<boolean> {
     return new Observable<boolean>((observer) => {
       this.store
         .select('user')

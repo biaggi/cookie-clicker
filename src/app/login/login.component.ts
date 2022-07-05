@@ -14,19 +14,21 @@ export class LoginComponent implements OnInit {
   title = 'cookies'
   public fg!: FormGroup
 
-  constructor (
+  constructor(
     private fb: FormBuilder,
     private store: Store<AppState>,
     private router: Router
   ) {}
 
-  ngOnInit (): void {
+  ngOnInit(): void {
     this.fg = this.fb.group({
       name: new FormControl('', Validators.required)
     })
+    this.store.dispatch(createUser({ name: "jose" }))
+    this.router.navigate(['game'])
   }
 
-  submit () {
+  submit() {
     if (this.fg.invalid) return
     this.store.dispatch(createUser({ name: this.fg.value.name }))
     this.router.navigate(['game'])
