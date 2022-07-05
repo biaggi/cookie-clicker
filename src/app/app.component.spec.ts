@@ -1,5 +1,8 @@
 import { TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Store, StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
+import { appReducers } from './store/store';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -7,6 +10,9 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [ReactiveFormsModule,
+        StoreModule.forRoot(appReducers)
+        ]
     }).compileComponents();
   });
 
@@ -16,16 +22,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'cookies'`, () => {
+  it(`should be marked as error if invalid'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('cookies');
+    fixture.detectChanges();
+    app.fg.patchValue({name: 'test'});
+    fixture.detectChanges();
+    app.fg.patchValue({name: ''});
+    fixture.detectChanges();
+    const input = fixture.debugElement.nativeElement.querySelector('.is-invalid');
+    expect(input).toBeDefined();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('cookies app is running!');
-  });
 });
