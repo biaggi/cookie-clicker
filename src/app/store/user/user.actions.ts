@@ -1,3 +1,3 @@
-import { createAction, props } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store'
 
-export const createUser = createAction('create user', props<{name: string}>());
+export const createUser = createAction('create user', props<{ name: string }>())

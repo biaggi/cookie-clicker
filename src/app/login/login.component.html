@@ -4,11 +4,24 @@
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating">
-        <input type="text" [ngClass]="{'form-control': true, 'is-invalid': fg.touched && fg.invalid}" class="form-control is-invalid" id="name" placeholder="name" formControlName="name" aria-describedby="nameFeedback">
+        <input
+          type="text"
+          [ngClass]="{
+            'form-control': true,
+            'is-invalid': fg.touched && fg.invalid
+          }"
+          class="form-control is-invalid"
+          id="name"
+          placeholder="name"
+          formControlName="name"
+          aria-describedby="nameFeedback"
+        />
         <label for="name">Name</label>
       </div>
 
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">
+        Sign in
+      </button>
     </form>
   </main>
 </div>
