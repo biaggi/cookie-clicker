@@ -8,12 +8,20 @@ import { StoreModule } from '@ngrx/store';
 import { ReactiveFormsModule } from '@angular/forms';
 import { appReducers } from './store/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { LayoutComponent } from './game/layout/layout.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LayoutComponent,
+    LoginComponent
   ],
   imports: [
+    AppRoutingModule,
+
     BrowserModule,
     ReactiveFormsModule,
 
@@ -31,6 +39,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+     AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,24 +9,5 @@ import { createUser } from './store/user/user.actions';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'cookies';
-  public fg!: FormGroup;
-
-  constructor(private fb: FormBuilder, private store: Store<AppState>) {
-
-  }
-
-  ngOnInit(): void {
-    this.fg = this.fb.group({
-      name: new FormControl('', Validators.required),
-    });
-  }
-
-  submit() {
-    console.log(this.fg)
-    if (this.fg.invalid) return;
-    console.log('test')
-    this.store.dispatch(createUser({name: this.fg.value.name}))
-  }
+export class AppComponent {
 }
