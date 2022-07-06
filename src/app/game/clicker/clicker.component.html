@@ -3,7 +3,7 @@
     <h1 class="h3 mb-3 fw-normal">{{ title }} ({{ owned }})</h1>
 
     <button class="w-100 btn btn-lg btn-primary" (click)="onIncrement()">
-      Comprar {{ title }} ({{ cost }}), produce {{ owned * level }} cada
+      Comprar {{ title }} ({{ cost }}), produce {{ production() }} cada
       {{ interval / 1000 }} segundos
     </button>
     <button class="w-100 btn btn-lg btn-primary" (click)="onUpgrade()">

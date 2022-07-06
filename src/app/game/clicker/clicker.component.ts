@@ -23,21 +23,28 @@ export class ClickerComponent implements OnInit, OnDestroy {
 
   private subs: Subscription[] = []
   private quantity: number = 0
-
+  private baseCost: number = 0
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
+    this.baseCost = this.cost
     const source = timer(this.interval, this.interval)
     this.subs.push(
       source.subscribe(() =>
         this.store.dispatch(
-          resourceActions.produceResource({ quantity: this.owned * this.level })
+          resourceActions.produceResource({
+            quantity: this.production()
+          })
         )
       )
     )
     this.store
       .select('resources')
       .subscribe((resources) => (this.quantity = resources.quantity))
+  }
+
+  public production() {
+    return this.owned * this.level * this.baseCost
   }
 
   ngOnDestroy(): void {
