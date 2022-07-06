@@ -1,12 +1,13 @@
 <div class="text-center">
   <main class="form-signin w-100 m-auto">
-    <h1 class="h3 mb-3 fw-normal">{{title}} ({{owned}})</h1>
+    <h1 class="h3 mb-3 fw-normal">{{ title }} ({{ owned }})</h1>
 
     <button class="w-100 btn btn-lg btn-primary" (click)="onIncrement()">
-      Add {{title}} ({{cost}})
+      Comprar {{ title }} ({{ cost }}), produce {{ owned * level }} cada
+      {{ interval / 1000 }} segundos
     </button>
     <button class="w-100 btn btn-lg btn-primary" (click)="onUpgrade()">
-      upgrade {{title}} ()
+      Subir producción de {{ title }} nivel {{ level }} (coste {{ upgradeCost }})
     </button>
   </main>
 </div>

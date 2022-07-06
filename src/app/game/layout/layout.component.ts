@@ -16,7 +16,7 @@ const gameDataConfiguration: GameDataIface = [
   {
     levelName: 'Patatas',
     levelData: [
-      { title: 'granjero', factor: 1.15, cost: 1, interval: 5000 },
+      { title: 'granjero', factor: 1.15, cost: 1, interval: 1000 },
       { title: 'comuna', factor: 1.16, cost: 10, interval: 10000 },
       { title: 'camión', factor: 1.17, cost: 100, interval: 20000 },
       { title: 'plantación', factor: 1.18, cost: 1000, interval: 30000 },
@@ -51,6 +51,8 @@ export class LayoutComponent implements OnInit {
       this.user = user
     })
 
-    this.store.select('resources').subscribe((resources) => {this.quantity = resources.quantity})
+    this.store.select('resources').subscribe((resources) => {
+      this.quantity = resources.quantity
+    })
   }
 }

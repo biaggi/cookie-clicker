@@ -18,25 +18,50 @@ export class ClickerComponent implements OnInit, OnDestroy {
   @Input() interval: number = 0
   @Input() owned: number = 1
 
+  public upgradeCost: number = 100
+  public level = 1
+
   private subs: Subscription[] = []
+  private quantity: number = 0
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     const source = timer(this.interval, this.interval)
-    source.subscribe(() =>
-      this.store.dispatch(
-        resourceActions.produceResource({ quantity: this.owned })
+    this.subs.push(
+      source.subscribe(() =>
+        this.store.dispatch(
+          resourceActions.produceResource({ quantity: this.owned * this.level })
+        )
       )
     )
+    this.store
+      .select('resources')
+      .subscribe((resources) => (this.quantity = resources.quantity))
   }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    this.subs.every((s) => {
+      s.unsubscribe()
+      return true
+    })
+  }
 
   onIncrement() {
-    //    this.owned = this.owned + 1
-    //    this.baseCost = Math.ceil(this.baseCost * Math.pow(1.10, this.owned))
+    if (this.quantity >= this.cost) {
+      this.store.dispatch(
+        resourceActions.consumeResource({ quantity: this.cost })
+      )
+      this.owned++
+      this.cost = Math.ceil(this.cost * Math.pow(this.factor, this.owned))
+    }
   }
 
-  onUpgrade() {}
+  onUpgrade() {
+    if (this.quantity >= this.upgradeCost) {
+      this.store.dispatch(resourceActions.consumeResource({ quantity: 100 }))
+      this.level++
+      this.upgradeCost *= 10
+    }
+  }
 }

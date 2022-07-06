@@ -16,4 +16,12 @@ describe('user Reducer', () => {
     )
     expect(state.quantity).toBe(1)
   })
+
+  it('add resource', () => {
+    const state = reducer.resourceReducer(
+      reducer.initialState,
+      actions.produceResource({ quantity: 1 })
+    )
+    expect(state.quantity).toBe(-1)
+  })
 })

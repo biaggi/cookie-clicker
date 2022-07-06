@@ -7,7 +7,7 @@ export interface ResourceState {
 }
 
 export const initialState = {
-  quantity: 0,
+  quantity: 1000,
   resources: [{ index: 0, quantity: 1 }]
 }
 
@@ -16,5 +16,9 @@ export const resourceReducer = createReducer(
   on(actions.produceResource, (state, props) => ({
     ...state,
     quantity: state.quantity + props.quantity
+  })),
+  on(actions.consumeResource, (state, props) => ({
+    ...state,
+    quantity: state.quantity - props.quantity
   }))
 )
