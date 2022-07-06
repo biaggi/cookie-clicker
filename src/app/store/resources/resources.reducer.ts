@@ -7,7 +7,7 @@ export interface ResourceState {
 }
 
 export const initialState = {
-  quantity: 1000,
+  quantity: 10000,
   resources: [{ index: 0, quantity: 1 }]
 }
 

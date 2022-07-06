@@ -14,14 +14,14 @@ describe('user Reducer', () => {
       reducer.initialState,
       actions.produceResource({ quantity: 1 })
     )
-    expect(state.quantity).toBe(1)
+    expect(state.quantity).toBe(10001)
   })
 
-  it('add resource', () => {
+  it('consume resource', () => {
     const state = reducer.resourceReducer(
       reducer.initialState,
-      actions.produceResource({ quantity: 1 })
+      actions.consumeResource({ quantity: 1 })
     )
-    expect(state.quantity).toBe(-1)
+    expect(state.quantity).toBe(9999)
   })
 })
