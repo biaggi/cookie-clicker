@@ -1,0 +1,81 @@
+{
+  "configVersion": 1,
+  "timestamp": 1657110578716,
+  "index": "/cookies/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/cookies/favicon.ico",
+        "/cookies/index.html",
+        "/cookies/main.59ecc00c47984484.js",
+        "/cookies/manifest.webmanifest",
+        "/cookies/polyfills.57d1bb985ccefc98.js",
+        "/cookies/runtime.850d5db7b6a4a432.js",
+        "/cookies/styles.f8e3132b35359c87.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/cookies/assets/icons/icon-128x128.png",
+        "/cookies/assets/icons/icon-144x144.png",
+        "/cookies/assets/icons/icon-152x152.png",
+        "/cookies/assets/icons/icon-192x192.png",
+        "/cookies/assets/icons/icon-384x384.png",
+        "/cookies/assets/icons/icon-512x512.png",
+        "/cookies/assets/icons/icon-72x72.png",
+        "/cookies/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/cookies/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/cookies/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/cookies/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/cookies/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/cookies/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/cookies/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/cookies/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/cookies/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/cookies/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/cookies/index.html": "9adeb9d5a8f1deebc10d86abb58c3327a2030e20",
+    "/cookies/main.59ecc00c47984484.js": "33846e4413adba8e6b25a05d7cd303227768e4ba",
+    "/cookies/manifest.webmanifest": "8c83e8feb9352829319de528ea08492c1d463ae4",
+    "/cookies/polyfills.57d1bb985ccefc98.js": "5042dca39e3c2b45b785c4899fc3b82d9e6bd53d",
+    "/cookies/runtime.850d5db7b6a4a432.js": "065ffea80e8e7675242bb88149bbc20263d5c21d",
+    "/cookies/styles.f8e3132b35359c87.css": "88d4dd682b9ec0a15972f03ef32fd749d57bd196"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
