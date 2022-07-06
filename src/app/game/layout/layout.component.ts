@@ -39,6 +39,7 @@ const gameDataConfiguration: GameDataIface = [
 })
 export class LayoutComponent implements OnInit {
   user!: string
+  quantity: number = 0
   public level: number = 0
   public config: GameDataIface = gameDataConfiguration
   // patatas que tiene el usuario producidas en un momento dado
@@ -49,5 +50,7 @@ export class LayoutComponent implements OnInit {
     this.store.select('user').subscribe((user) => {
       this.user = user
     })
+
+    this.store.select('resources').subscribe((resources) => {this.quantity = resources.quantity})
   }
 }

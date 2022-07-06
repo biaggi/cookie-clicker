@@ -1,28 +1,37 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnDestroy, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { AppState } from 'src/app/store/store'
-import { timer } from 'rxjs'
+import { Subscription, timer } from 'rxjs'
+import * as resourceActions from 'src/app/store/resources/resources.actions'
 
 @Component({
   selector: 'app-clicker',
   templateUrl: './clicker.component.html',
   styleUrls: ['./clicker.component.css']
 })
-export class ClickerComponent implements OnInit {
+export class ClickerComponent implements OnInit, OnDestroy {
   //  { title: 'riego automatizado', factor: 1.19, cost: 10000, interval: 40000 },
 
   @Input() title: string = ''
   @Input() factor: number = 0
   @Input() cost: number = 0
   @Input() interval: number = 0
-  @Input() owned: number = 0
+  @Input() owned: number = 1
+
+  private subs: Subscription[] = []
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     const source = timer(this.interval, this.interval)
-    source.subscribe(() => console.log('test'))
+    source.subscribe(() =>
+      this.store.dispatch(
+        resourceActions.produceResource({ quantity: this.owned })
+      )
+    )
   }
+
+  ngOnDestroy(): void {}
 
   onIncrement() {
     //    this.owned = this.owned + 1

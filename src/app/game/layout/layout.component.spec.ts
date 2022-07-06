@@ -24,4 +24,12 @@ describe('LayoutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy()
   })
+
+  it('should show quantity', () => {
+    component.quantity = 5
+    fixture.detectChanges()
+    const element: HTMLHeadElement =
+      fixture.debugElement.nativeElement.querySelector('main h1')
+    expect(element.innerText).toBe('Patatas 5')
+  })
 })

@@ -30,8 +30,6 @@ describe('LoginComponent', () => {
   })
 
   it("should be marked as error if invalid'", () => {
-    const fixture = TestBed.createComponent(LoginComponent)
-    fixture.detectChanges()
     component.fg.patchValue({ name: 'test' })
     fixture.detectChanges()
     component.fg.patchValue({ name: '' })

@@ -5,8 +5,5 @@ export const initialState = ''
 
 export const userReducer = createReducer(
   initialState,
-  on(createUser, (state, props) => {
-    console.log('tes444t')
-    return props.name
-  })
+  on(createUser, (state, props) => props.name)
 )
